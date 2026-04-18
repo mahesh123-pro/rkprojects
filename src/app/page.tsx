@@ -27,17 +27,17 @@ export default function Home() {
   return (
     <div className="w-full relative">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] w-full flex items-center bg-gray-900">
+      <section className="relative h-screen min-h-[700px] w-full flex items-center bg-gray-900 overflow-hidden">
         <Image
           src="/images/image_4.jpeg"
           alt="Civil Construction Hero Background"
           fill
-          className="object-cover opacity-40 mix-blend-overlay"
+          className="object-cover opacity-60 mix-blend-overlay scale-110"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-20">
           <motion.div 
             initial="hidden" animate="visible" variants={fadeUp}
             className="max-w-3xl"

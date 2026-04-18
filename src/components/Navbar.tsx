@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, HardHat } from 'lucide-react';
@@ -8,7 +8,17 @@ import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === '/';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -18,13 +28,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 top-0 border-b border-gray-100">
+    <nav 
+      className={`fixed w-full z-[100] top-0 transition-all duration-500 ${
+        scrolled || !isHome || isOpen
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-0" 
+          : "bg-transparent py-4 text-white"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2">
-            <HardHat className="text-accent h-8 w-8" />
-            <span className="font-bold text-2xl tracking-tighter text-primary">
-              RK<span className="text-accent">Projects</span>
+            <HardHat className={`h-8 w-8 transition-colors ${scrolled || !isHome || isOpen ? "text-accent" : "text-white"}`} />
+            <span className={`font-bold text-2xl tracking-tighter transition-colors ${scrolled || !isHome || isOpen ? "text-primary" : "text-white"}`}>
+              RK<span className="text-accent underline decoration-accent/30 underline-offset-4">Projects</span>
             </span>
           </Link>
 
@@ -34,8 +50,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.path}
-                className={`text-sm font-semibold transition-colors duration-200 ${
-                  pathname === link.path ? 'text-accent' : 'text-dark-gray hover:text-accent'
+                className={`text-sm font-bold tracking-wide transition-colors duration-200 uppercase ${
+                  scrolled || !isHome || isOpen
+                    ? (pathname === link.path ? 'text-accent' : 'text-dark-gray hover:text-accent')
+                    : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.name}
@@ -43,7 +61,11 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded text-sm font-bold transition-colors duration-300"
+              className={`px-6 py-2.5 rounded text-sm font-bold transition-all duration-300 ${
+                scrolled || !isHome || isOpen
+                  ? "bg-accent hover:bg-accent-hover text-white shadow-lg shadow-accent/20"
+                  : "bg-white text-primary hover:bg-accent hover:text-white"
+              }`}
             >
               Get Quote
             </Link>
@@ -53,7 +75,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-dark-gray hover:text-accent transition focus:outline-none"
+              className={`transition focus:outline-none ${scrolled || !isHome || isOpen ? "text-dark-gray" : "text-white"}`}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>

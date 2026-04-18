@@ -19,7 +19,7 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
   }
 
   return (
-    <div className="w-full bg-surface">
+    <div className="w-full bg-surface pt-24">
       {/* Hero Banner */}
       <div className="relative w-full h-[50vh] min-h-[400px] bg-primary">
         <Image

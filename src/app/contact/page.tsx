@@ -10,7 +10,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-surface min-h-screen">
+    <div className="w-full bg-surface min-h-screen pt-24">
       {/* Header */}
       <div className="bg-primary py-20 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Us</h1>
