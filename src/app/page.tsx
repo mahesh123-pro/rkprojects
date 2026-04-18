@@ -60,6 +60,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Realistic Vision Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2"
+            >
+              <h2 className="text-accent font-bold uppercase tracking-widest text-sm mb-4 italic">Next-Gen Construction</h2>
+              <h3 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-tight">
+                Architectural <br />
+                <span className="text-accent italic">Vision.</span>
+              </h3>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+                RK Projects blends traditional craftsmanship with the latest technological advancements. Our vision spans beyond just buildings; we create landmarks that stand the test of time through extreme realism and precision.
+              </p>
+              <div className="h-1 w-20 bg-accent mb-8"></div>
+              <p className="text-gray-500 italic">
+                "Our approach combines the strength of tradition with the precision of modern engineering."
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="lg:w-1/2 relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-8 border-white group"
+            >
+              <Image 
+                src="/images/ai_impact.png" 
+                alt="AI Generated Construction Vision" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section id="services" className="py-24 bg-surface w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
