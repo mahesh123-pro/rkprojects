@@ -42,17 +42,17 @@ export default function Home() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
               Building The<br/> Foundations Of <span className="text-accent underline decoration-accent/50 underline-offset-8">Tomorrow.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">
               Premium civil construction, road infrastructure, and specialized heavy machinery designed to meet industrial demands. Serious solutions for big projects.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded font-bold text-lg transition-transform hover:scale-105 duration-300 shadow-xl shadow-accent/20 flex items-center">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/contact" className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded font-bold text-lg transition-transform hover:scale-105 duration-300 shadow-xl shadow-accent/20 flex items-center justify-center">
                 Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <Link href="/portfolio" className="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded font-bold text-lg transition-colors duration-300">
+              <Link href="/portfolio" className="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded font-bold text-lg transition-colors duration-300 text-center">
                 View Projects
               </Link>
             </div>
@@ -61,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* AI Realistic Vision Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <motion.div 
@@ -90,7 +90,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="lg:w-1/2 relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-8 border-white group"
+              className="lg:w-1/2 relative h-[350px] sm:h-[450px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 md:border-8 border-white group"
             >
               <Image 
                 src="/images/ai_impact.png" 
@@ -236,13 +236,13 @@ export default function Home() {
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Our commitment to quality is visible in every road we pave and every structure we build. Using the most advanced machinery and engineering techniques, we ensure that every project is a landmark of durability.
             </p>
-            <div className="flex gap-8">
-              <div>
+            <div className="flex flex-col sm:flex-row gap-8">
+              <div className="flex flex-col items-center sm:items-start">
                 <span className="block text-3xl font-bold text-white mb-1">150+</span>
                 <span className="text-accent text-sm font-semibold uppercase">Projects Done</span>
               </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div>
+              <div className="hidden sm:block w-px h-12 bg-white/20"></div>
+              <div className="flex flex-col items-center sm:items-start pt-4 sm:pt-0 border-t border-white/10 sm:border-t-0 w-full sm:w-auto">
                 <span className="block text-3xl font-bold text-white mb-1">10+ Years</span>
                 <span className="text-accent text-sm font-semibold uppercase">Experience</span>
               </div>

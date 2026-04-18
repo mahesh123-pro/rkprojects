@@ -144,18 +144,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Floating WhatsApp CTA */}
-      <a 
-        href="https://wa.me/919876543210" 
-        target="_blank" 
-        rel="noreferrer"
-        className="fixed bottom-8 right-8 bg-[#25D366] hover:bg-[#20b858] text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 z-50 flex items-center justify-center group"
-      >
-        <MessageCircle size={32} />
-        <span className="absolute right-full mr-4 bg-white text-gray-800 font-bold px-4 py-2 rounded shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          Chat on WhatsApp
-        </span>
-      </a>
     </div>
   );
 }
