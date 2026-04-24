@@ -1,13 +1,13 @@
 export const productsData = {
   thresher: {
     id: "thresher",
-    name: "Thresher",
+    name: "Multi Crop Thresher",
     banner: "/images/image_8.jpeg",
-    description: "High-efficiency Thresher designed to separate grain from crops with precision and speed. Built with heavy-duty materials to withstand continuous processing and deliver immense yield without compromising crop quality.",
+    description: "Our Multi Crop Thresher is engineered for versatility, efficiently processing wheat, maize, pulses, and other grains. It features a robust threshing system that ensures maximum grain recovery with minimal damage, making it a favorite among large-scale farmers.",
     useCases: [
-      "Wheat processing",
-      "Paddy harvesting",
-      "Large scale grain farm preparation"
+      "Wheat and Paddy processing",
+      "Maize and Pulse threshing",
+      "Multi-crop farm operations"
     ],
     gallery: [
       "/images/image_9.jpeg",
@@ -18,14 +18,13 @@ export const productsData = {
   },
   shredder: {
     id: "shredder",
-    name: "Industrial Shredder",
+    name: "Tobacco Shredder",
     banner: "/images/image_13.jpeg",
-    description: "Robust industrial and agricultural shredder. Ideal for waste management, reducing bulk organic material, and preparation for composting. Features reinforced blades for maximum longevity.",
+    description: "Specially designed for the tobacco industry, our Tobacco Shredder provides uniform cutting and processing of tobacco leaves and stalks. It is built for high-capacity industrial use, ensuring durability and consistent output quality.",
     useCases: [
-      "Crop residue management",
-      "Wood and organic waste reduction",
-      "Industrial recycling processes",
-      "Compost preparation"
+      "Tobacco stalk management",
+      "Industrial tobacco leaf processing",
+      "Biomass preparation for tobacco waste"
     ],
     gallery: [
       "/images/image_14.jpeg",
@@ -34,15 +33,15 @@ export const productsData = {
       "/images/image_17.jpeg"
     ]
   },
-  "chaff-cutter": {
-    id: "chaff-cutter",
-    name: "Chaff Cutter",
+  "cotton-shredder": {
+    id: "cotton-shredder",
+    name: "Cotton Shredder",
     banner: "/images/image_18.jpeg",
-    description: "An essential machine for uniform cutting of straw or hay into small pieces before being mixed together with other forage and fed to farm animals. Ergonomic design and high performance.",
+    description: "The RK Cotton Shredder is the industry standard for clearing cotton stalks after harvest. It efficiently breaks down tough stalks into small particles, allowing for easy soil incorporation and preparing the field for the next season.",
     useCases: [
-      "Dairy farm operations",
-      "Livestock feed preparation",
-      "Efficient processing of green fodder"
+      "Cotton stalk clearing",
+      "Soil preparation after cotton harvest",
+      "High-capacity farm stalk management"
     ],
     gallery: [
       "/images/image_19.jpeg",
@@ -51,16 +50,15 @@ export const productsData = {
       "/images/image_22.jpeg"
     ]
   },
-  rotavator: {
-    id: "rotavator",
-    name: "Heavy-Duty Rotavator",
+  "maize-thresher": {
+    id: "maize-thresher",
+    name: "Maize Thresher",
     banner: "/images/image_23.jpeg",
-    description: "A premium rotavator built for soil preparation. It uses a series of blades to break up the soil, providing perfect tilth for seeds and saving time in plowing and harrowing.",
+    description: "Our high-speed Maize Thresher is designed for maximum efficiency in de-husking and shelling maize. It handles high volumes with ease, providing clean maize kernels and saving significant manual labor.",
     useCases: [
-      "Seedbed preparation",
-      "Weed control and soil aeration",
-      "Orchard and vineyard cultivation",
-      "Incorporating crop residue"
+      "Large scale maize shelling",
+      "Post-harvest maize processing",
+      "Commercial grain preparation"
     ],
     gallery: [
       "/images/image_24.jpeg",

@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ChevronRight, Phone } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, CheckCircle2, ChevronRight, Phone, Star, Building2, Users } from "lucide-react";
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 300]);
+
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
@@ -18,23 +21,31 @@ export default function Home() {
   ];
 
   const products = [
-    { name: "Thresher", path: "/services/thresher" },
-    { name: "Shredder", path: "/services/shredder" },
-    { name: "Chaff Cutter", path: "/services/chaff-cutter" },
-    { name: "Rotavator", path: "/services/rotavator" },
+    { name: "Excavators", path: "/machinery" },
+    { name: "Bulldozers", path: "/machinery" },
+    { name: "Road Rollers", path: "/machinery" },
+    { name: "Concrete Mixers", path: "/machinery" },
+  ];
+
+  const testimonials = [
+    { name: "Rajesh Kumar", role: "Property Developer", text: "RK Projects delivered our commercial complex ahead of schedule. Uncompromising quality." },
+    { name: "Suresh Reddy", role: "Govt. Contractor", text: "Their road infrastructure work is phenomenal. Highly durable and professionally executed." },
+    { name: "Amit Patel", role: "Agri-Business Owner", text: "The heavy machinery we sourced from RK Projects has significantly improved our efficiency." }
   ];
 
   return (
     <div className="w-full relative">
       {/* Hero Section */}
       <section className="relative h-screen min-h-[700px] w-full flex items-center bg-gray-900 overflow-hidden">
-        <Image
-          src="/images/image_4.jpeg"
-          alt="Civil Construction Hero Background"
-          fill
-          className="object-cover opacity-60 mix-blend-overlay scale-110"
-          priority
-        />
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
+          <Image
+            src="/images/image_4.jpeg"
+            alt="Civil construction and highway road work by RK Projects"
+            fill
+            className="object-cover opacity-60 mix-blend-overlay"
+            priority
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-20">
@@ -49,14 +60,38 @@ export default function Home() {
               Premium civil construction, road infrastructure, and specialized heavy machinery designed to meet industrial demands. Serious solutions for big projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded font-bold text-lg transition-transform hover:scale-105 duration-300 shadow-xl shadow-accent/20 flex items-center justify-center">
+              <Link href="/contact" className="btn-interactive bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded font-bold text-lg shadow-md flex items-center justify-center">
                 Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <Link href="/portfolio" className="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded font-bold text-lg transition-colors duration-300 text-center">
-                View Projects
+              <Link href="/contact" className="btn-interactive bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded font-bold text-lg flex items-center justify-center">
+                <Phone className="mr-2 w-5 h-5" /> Contact Us
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Trust Elements - Stats Bar */}
+      <section className="bg-primary border-t border-white/10 py-10 relative z-10 -mt-1">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+            <div>
+              <p className="text-4xl font-bold text-white">150+</p>
+              <p className="text-accent text-sm uppercase tracking-wider mt-1">Completed Projects</p>
+            </div>
+            <div>
+              <p className="text-4xl font-bold text-white">10+</p>
+              <p className="text-accent text-sm uppercase tracking-wider mt-1">Years Experience</p>
+            </div>
+            <div>
+              <p className="text-4xl font-bold text-white">50+</p>
+              <p className="text-accent text-sm uppercase tracking-wider mt-1">Enterprise Clients</p>
+            </div>
+            <div>
+              <p className="text-4xl font-bold text-white">100%</p>
+              <p className="text-accent text-sm uppercase tracking-wider mt-1">Quality Assurance</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -65,38 +100,42 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               className="lg:w-1/2"
             >
-              <h2 className="text-accent font-bold uppercase tracking-widest text-sm mb-4 italic">Next-Gen Construction</h2>
-              <h3 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-tight">
+              <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4 italic">Next-Gen Construction</p>
+              <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-tight">
                 Architectural <br />
                 <span className="text-accent italic">Vision.</span>
-              </h3>
+              </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
                 RK Projects blends traditional craftsmanship with the latest technological advancements. Our vision spans beyond just buildings; we create landmarks that stand the test of time through extreme realism and precision.
               </p>
               <div className="h-1 w-20 bg-accent mb-8"></div>
-              <p className="text-gray-500 italic">
+              <p className="text-gray-500 italic mb-10">
                 "Our approach combines the strength of tradition with the precision of modern engineering."
               </p>
+              <Link href="/contact" className="inline-flex items-center text-primary font-bold hover:text-accent transition-colors text-lg border-b-2 border-primary hover:border-accent pb-1">
+                Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="lg:w-1/2 relative h-[350px] sm:h-[450px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 md:border-8 border-white group"
+              transition={{ duration: 0.6 }}
+              className="lg:w-1/2 relative h-[350px] sm:h-[450px] md:h-[500px] w-full rounded-2xl shadow-2xl border-4 md:border-8 border-white group image-zoom-container"
             >
               <Image 
                 src="/images/ai_impact.png" 
-                alt="AI Generated Construction Vision" 
+                alt="Architectural vision of modern construction by RK Projects" 
                 fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                loading="lazy"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
             </motion.div>
@@ -118,35 +157,44 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
             {services.map((service, idx) => (
               <motion.div 
                 key={idx}
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: idx * 0.15 } }
-                }}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                className="group bg-white rounded-xl shadow-md border border-gray-100 flex flex-col"
               >
-                <div className="relative h-64 overflow-hidden bg-gray-200">
+                <div className="relative h-64 bg-gray-200 image-zoom-container">
                   <Image 
                     src={service.img} 
-                    alt={service.title} 
+                    alt={`${service.title} services provided by RK Projects`} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
+                    loading="lazy"
+                    className="object-cover" 
                   />
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 </div>
-                <div className="p-8 relative">
+                <div className="p-8 relative flex-grow flex flex-col">
                   <div className="absolute -top-6 right-6 bg-accent w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
                     <CheckCircle2 className="text-white w-6 h-6" />
                   </div>
                   <h3 className="text-2xl font-bold text-primary mb-3">{service.title}</h3>
-                  <p className="text-gray-600 font-medium leading-relaxed">{service.desc}</p>
+                  <p className="text-gray-600 font-medium leading-relaxed flex-grow mb-6">{service.desc}</p>
+                  <Link href="/contact" className="text-accent font-bold hover:text-primary transition-colors flex items-center mt-auto">
+                    Contact Us <ChevronRight className="ml-1 w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
+          </div>
+          
+          <div className="text-center mt-10">
+            <Link href="/contact" className="btn-interactive inline-block bg-primary text-white px-8 py-4 rounded font-bold hover:bg-primary-hover shadow-md">
+              Get a Quote for Your Project
+            </Link>
           </div>
         </div>
       </section>
@@ -168,10 +216,10 @@ export default function Home() {
                 {products.map((p, idx) => (
                   <motion.li 
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
                   >
                     <Link href={p.path} className="flex items-center p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-accent hover:bg-orange-50 group transition-colors">
                       <ChevronRight className="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform" />
@@ -181,31 +229,61 @@ export default function Home() {
                 ))}
               </ul>
 
-              <Link href="/portfolio" className="inline-block border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-white transition-colors duration-300">
-                View Full Catalog
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link href="/portfolio" className="btn-interactive inline-flex justify-center border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-white">
+                  View Full Catalog
+                </Link>
+                <Link href="/contact" className="btn-interactive inline-flex justify-center bg-accent text-white px-8 py-3 rounded font-bold hover:bg-accent-hover">
+                  Contact Us
+                </Link>
+              </div>
             </motion.div>
             
             <div className="md:w-1/2 grid grid-cols-2 gap-4">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-                className="col-span-2 h-64 relative rounded-xl overflow-hidden shadow-lg"
+                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+                className="col-span-2 h-64 relative rounded-xl shadow-md image-zoom-container"
               >
-                <Image src="/images/image_5.jpeg" alt="Machinery 1" fill className="object-cover" />
+                <Image src="/images/image_5.jpeg" alt="Heavy duty machinery provided by RK Projects" fill loading="lazy" className="object-cover" />
               </motion.div>
               <motion.div 
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
-                className="h-48 relative rounded-xl overflow-hidden shadow-lg"
+                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+                className="h-48 relative rounded-xl shadow-md image-zoom-container"
               >
-                <Image src="/images/image_6.jpeg" alt="Machinery 2" fill className="object-cover" />
+                <Image src="/images/image_6.jpeg" alt="Industrial machinery implement" fill loading="lazy" className="object-cover" />
               </motion.div>
               <motion.div 
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
-                className="h-48 relative rounded-xl overflow-hidden shadow-lg"
+                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
+                className="h-48 relative rounded-xl shadow-md image-zoom-container"
               >
-                <Image src="/images/image_7.jpeg" alt="Machinery 3" fill className="object-cover" />
+                <Image src="/images/image_7.jpeg" alt="Agriculture and construction heavy equipment" fill loading="lazy" className="object-cover" />
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Elements - Testimonials */}
+      <section className="py-24 bg-surface w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+            <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                <div className="flex text-yellow-400 mb-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                </div>
+                <p className="text-gray-600 mb-6 italic leading-relaxed">"{t.text}"</p>
+                <div>
+                  <h4 className="font-bold text-primary text-lg">{t.name}</h4>
+                  <p className="text-sm text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -214,45 +292,40 @@ export default function Home() {
       <section className="relative w-full py-32 overflow-hidden bg-primary">
         <Image 
           src="/images/image_29.jpeg" 
-          alt="Featured Infrastructure Project" 
+          alt="Featured highway infrastructure project by RK Projects" 
           fill 
+          loading="lazy"
           className="object-cover opacity-30 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-transparent"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl bg-white/5 backdrop-blur-md p-10 rounded-2xl border border-white/10"
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl bg-[#111827]/90 p-10 rounded border border-gray-800"
           >
-            <h2 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Precision & Power</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Precision & Power</p>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
               Civil Engineering <br />
               <span className="text-accent">Redefined.</span>
-            </h3>
+            </h2>
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Our commitment to quality is visible in every road we pave and every structure we build. Using the most advanced machinery and engineering techniques, we ensure that every project is a landmark of durability.
             </p>
             <div className="flex flex-col sm:flex-row gap-8">
-              <div className="flex flex-col items-center sm:items-start">
-                <span className="block text-3xl font-bold text-white mb-1">150+</span>
-                <span className="text-accent text-sm font-semibold uppercase">Projects Done</span>
-              </div>
-              <div className="hidden sm:block w-px h-12 bg-white/20"></div>
-              <div className="flex flex-col items-center sm:items-start pt-4 sm:pt-0 border-t border-white/10 sm:border-t-0 w-full sm:w-auto">
-                <span className="block text-3xl font-bold text-white mb-1">10+ Years</span>
-                <span className="text-accent text-sm font-semibold uppercase">Experience</span>
-              </div>
+              <Link href="/contact" className="btn-interactive bg-accent hover:bg-accent-hover text-gray-900 px-8 py-3 rounded font-bold shadow-md self-start">
+                Get a Quote
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary w-full relative overflow-hidden">
+      <section className="py-20 bg-primary border-t border-white/10 w-full relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full filter blur-[100px] opacity-20 -translate-y-1/2 translate-x-1/3"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
@@ -261,11 +334,11 @@ export default function Home() {
                Let's build something exceptional together. Contact us today for inquiries regarding civil works or machinery.
              </p>
              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link href="/contact" className="bg-accent hover:bg-accent-hover text-white px-10 py-4 rounded font-bold text-lg transition-transform hover:-translate-y-1 duration-300 shadow-xl">
-                  Contact Us Now
+                <Link href="/contact" className="btn-interactive bg-accent hover:bg-white text-gray-900 px-10 py-4 rounded font-bold text-lg shadow-md">
+                  Get a Quote
                 </Link>
-                <a href="tel:+919876543210" className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-10 py-4 rounded font-bold text-lg transition-colors border border-white/20">
-                  <Phone className="mr-3 text-accent" size={24} /> +91 98765 43210
+                <a href="tel:+919876543210" className="btn-interactive flex items-center justify-center bg-transparent border border-white/40 hover:bg-white/10 text-white px-10 py-4 rounded font-bold text-lg">
+                  <Phone className="mr-3 text-accent" size={20} /> Contact Us
                 </a>
              </div>
           </motion.div>

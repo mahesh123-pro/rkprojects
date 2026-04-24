@@ -25,7 +25,8 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/" className="text-gray-400 hover:text-accent transition">Home</Link></li>
               <li><Link href="/#services" className="text-gray-400 hover:text-accent transition">Our Services</Link></li>
-              <li><Link href="/portfolio" className="text-gray-400 hover:text-accent transition">Portfolio & Implements</Link></li>
+              <li><Link href="/machinery" className="text-gray-400 hover:text-accent transition">Machinery & Equipment</Link></li>
+              <li><Link href="/portfolio" className="text-gray-400 hover:text-accent transition">Portfolio & Projects</Link></li>
               <li><Link href="/contact" className="text-gray-400 hover:text-accent transition">Contact Us</Link></li>
             </ul>
           </div>
@@ -34,10 +35,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-4 border-b border-gray-700 pb-2 inline-block">Products & Machinery</h4>
             <ul className="space-y-3">
-              <li><Link href="/services/thresher" className="text-gray-400 hover:text-accent transition">Thresher</Link></li>
-              <li><Link href="/services/shredder" className="text-gray-400 hover:text-accent transition">Shredder</Link></li>
-              <li><Link href="/services/chaff-cutter" className="text-gray-400 hover:text-accent transition">Chaff Cutter</Link></li>
-              <li><Link href="/services/rotavator" className="text-gray-400 hover:text-accent transition">Rotavator</Link></li>
+              <li><Link href="/machinery#earthmoving" className="text-gray-400 hover:text-accent transition">Earthmoving Equipment</Link></li>
+              <li><Link href="/machinery#construction" className="text-gray-400 hover:text-accent transition">Construction Machinery</Link></li>
+              <li><Link href="/machinery#terrain" className="text-gray-400 hover:text-accent transition">Terrain Capability</Link></li>
+              <li><Link href="/portfolio" className="text-gray-400 hover:text-accent transition">Completed Projects</Link></li>
             </ul>
           </div>
 
@@ -64,7 +65,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} RK Projects. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <Link href="#" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition">Terms of Service</Link>
           </div>
         </div>

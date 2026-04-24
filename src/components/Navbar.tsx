@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, HardHat, Phone, MapPin, ChevronDown } from 'lucide-react';
+import { Menu, X, HardHat, Phone, Mail, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -14,7 +13,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -24,59 +23,69 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/#services' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Machinery', path: '/machinery' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <>
-      {/* Top Bar - Hidden on scroll or mobile */}
-      <div 
-        className={`fixed w-full z-[101] top-0 transition-transform duration-500 hidden md:flex bg-primary border-b border-white/10 ${
-          scrolled || !isHome ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-8 w-full h-10 flex justify-between items-center text-[11px] font-bold tracking-widest text-gray-300 uppercase">
-          <div className="flex gap-6">
-            <span className="flex items-center gap-2"><Phone size={12} className="text-accent"/> +91 98765 43210</span>
-            <span className="flex items-center gap-2 text-white/60"><MapPin size={12} className="text-accent"/> 123 Industrial Area, State 12345</span>
+      {/* Top Contact Bar */}
+      <div className="hidden lg:block w-full bg-[#111827] text-gray-300 py-2 border-b border-gray-800 relative z-[101]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs font-medium">
+          <div className="flex space-x-6">
+            <a href="tel:+919876543210" className="flex items-center hover:text-white transition-colors">
+              <Phone size={14} className="mr-2 text-accent" />
+              +91 98765 43210
+            </a>
+            <a href="mailto:info@rkprojects.com" className="flex items-center hover:text-white transition-colors">
+              <Mail size={14} className="mr-2 text-accent" />
+              info@rkprojects.com
+            </a>
           </div>
-          <div className="flex gap-6">
-            <span className="hover:text-accent cursor-pointer transition-colors">Safety First</span>
-            <span className="hover:text-accent cursor-pointer transition-colors">Quality Assured</span>
+          <div className="flex space-x-6 items-center">
+            <span className="flex items-center">
+              <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+              ISO 9001:2015 Certified
+            </span>
+            <span className="text-gray-600">|</span>
+            <Link href="/contact" className="hover:text-white transition-colors">Request a Quote</Link>
           </div>
         </div>
       </div>
 
+      {/* Main Navigation */}
       <nav 
-        className={`fixed w-full z-[100] transition-all duration-500 ${
+        className={`fixed w-full z-[100] transition-all duration-300 ${
           scrolled || !isHome || isOpen
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-0 top-0" 
-            : "bg-transparent py-4 text-white md:top-10"
+            ? "bg-white shadow-md py-2 lg:top-8" 
+            : "bg-transparent py-4 text-white lg:top-8"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center space-x-2">
-              <HardHat className={`h-8 w-8 transition-colors ${scrolled || !isHome || isOpen ? "text-accent" : "text-white"}`} />
-              <div className="flex flex-col -space-y-1">
-                <span className={`font-black text-2xl tracking-tighter transition-colors ${scrolled || !isHome || isOpen ? "text-primary" : "text-white"}`}>
-                  RK<span className="text-accent italic underline decoration-accent/30 underline-offset-4">PROJECTS</span>
+          <div className="flex justify-between items-center h-16">
+            
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-3 group relative z-[110]">
+              <HardHat className={`h-8 w-8 transition-colors ${scrolled || !isHome || isOpen ? "text-primary" : "text-white"}`} />
+              <div className="flex flex-col -space-y-0.5">
+                <span className={`font-black text-2xl tracking-tight transition-colors ${scrolled || !isHome || isOpen ? "text-gray-900" : "text-white"}`}>
+                  RK<span className="text-accent">PROJECTS</span>
                 </span>
-                <span className={`text-[9px] font-bold tracking-[0.2em] transition-colors ${scrolled || !isHome || isOpen ? "text-gray-400" : "text-white/60"}`}>
-                  CIVIL & INFRASTRUCTURE
+                <span className={`text-[10px] font-semibold tracking-wider uppercase transition-colors ${scrolled || !isHome || isOpen ? "text-gray-500" : "text-gray-300"}`}>
+                  Civil & Infrastructure
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Desktop Nav Links */}
+            <div className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`text-xs font-bold tracking-widest transition-colors duration-200 uppercase ${
+                  className={`text-sm font-semibold uppercase tracking-wide transition-colors ${
                     scrolled || !isHome || isOpen
-                      ? (pathname === link.path ? 'text-accent' : 'text-dark-gray hover:text-accent')
+                      ? (pathname === link.path ? 'text-primary' : 'text-gray-600 hover:text-primary')
                       : 'text-white/90 hover:text-white'
                   }`}
                 >
@@ -84,44 +93,57 @@ export default function Navbar() {
                 </Link>
               ))}
               
-              <div className="relative group">
-                <button className={`text-xs font-bold tracking-widest uppercase flex items-center gap-1 ${
-                  scrolled || !isHome || isOpen ? "text-dark-gray hover:text-accent" : "text-white/90 hover:text-white"
-                }`}>
-                  Machinery <ChevronDown size={14} className="group-hover:rotate-180 transition-transform"/>
-                </button>
-                <div className="absolute top-full right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                  <div className="bg-white shadow-2xl rounded-xl border border-gray-100 p-4 w-56 grid gap-2">
-                    {['Thresher', 'Shredder', 'Chaff Cutter', 'Rotavator'].map((m) => (
+              {/* Fleet Dropdown */}
+              <div className="relative group py-4">
+                <Link 
+                  href="/machinery"
+                  className={`text-sm font-semibold uppercase tracking-wide flex items-center transition-colors ${
+                    scrolled || !isHome || isOpen ? "text-gray-600 hover:text-primary" : "text-white/90 hover:text-white"
+                  }`}
+                >
+                  Fleet <ChevronDown size={16} className="ml-1" />
+                </Link>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full right-0 w-64 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="py-2">
+                    {[
+                      { name: 'Earthmoving Equipment', path: '/machinery#earthmoving' },
+                      { name: 'Construction Machinery', path: '/machinery#construction' },
+                      { name: 'Terrain Capability', path: '/machinery#terrain' }
+                    ].map((item) => (
                       <Link 
-                        key={m} 
-                        href={`/services/${m.toLowerCase().replace(' ', '-')}`}
-                        className="text-[11px] font-bold text-gray-600 hover:text-accent p-2 hover:bg-gray-50 rounded transition-all"
+                        key={item.path} 
+                        href={item.path}
+                        className="block px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                       >
-                        {m}
+                        {item.name}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
 
+              {/* CTA Button */}
               <Link
                 href="/contact"
-                className={`px-8 py-3 rounded text-[11px] font-black tracking-widest uppercase transition-all duration-300 ${
+                className={`ml-4 px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wide transition-all ${
                   scrolled || !isHome || isOpen
-                    ? "bg-accent hover:bg-accent-hover text-white shadow-lg shadow-accent/20"
-                    : "bg-white text-primary hover:bg-accent hover:text-white"
+                    ? "bg-primary text-white hover:bg-primary-hover shadow-md"
+                    : "bg-accent text-gray-900 hover:bg-white"
                 }`}
               >
-                Inquiry
+                Get Quote
               </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
-            <div className="md:hidden flex items-center">
+            <div className="lg:hidden flex items-center relative z-[110]">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`transition focus:outline-none ${scrolled || !isHome || isOpen ? "text-dark-gray" : "text-white"}`}
+                className={`p-2 rounded focus:outline-none transition-colors ${
+                  scrolled || !isHome || isOpen ? "text-gray-900" : "text-white"
+                }`}
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -129,54 +151,55 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
-            >
-              <div className="px-6 pt-4 pb-10 flex flex-col space-y-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.path}
+        {/* Mobile Dropdown Menu */}
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+          }`}
+        >
+          <div className="px-6 flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`block text-lg font-bold uppercase transition-colors ${
+                  pathname === link.path ? 'text-primary' : 'text-gray-800'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            
+            <div className="pt-4 border-t border-gray-100">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Our Fleet</p>
+              <div className="flex flex-col space-y-3 pl-4 border-l-2 border-accent">
+                {[
+                  { name: 'Earthmoving Equipment', path: '/machinery#earthmoving' },
+                  { name: 'Construction Machinery', path: '/machinery#construction' },
+                  { name: 'Terrain Capability', path: '/machinery#terrain' }
+                ].map((item) => (
+                  <Link 
+                    key={item.path} 
+                    href={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block text-lg font-bold uppercase transition-colors ${
-                      pathname === link.path ? 'text-accent' : 'text-primary'
-                    }`}
+                    className="text-base font-semibold text-gray-700 hover:text-primary"
                   >
-                    {link.name}
+                    {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-gray-100">
-                  <p className="text-[10px] font-bold text-gray-400 mb-4 tracking-widest uppercase">Our Machinery</p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {['Thresher', 'Shredder', 'Chaff Cutter', 'Rotavator'].map((m) => (
-                      <Link 
-                        key={m} 
-                        href={`/services/${m.toLowerCase().replace(' ', '-')}`}
-                        onClick={() => setIsOpen(false)}
-                        className="text-sm font-bold text-gray-700 hover:text-accent"
-                      >
-                        {m}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="bg-accent text-white text-center py-4 rounded font-black tracking-widest uppercase mt-6"
-                >
-                  Send Inquiry
-                </Link>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+            
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-6 block w-full bg-primary text-white text-center py-4 rounded font-bold uppercase tracking-widest"
+            >
+              Get a Quote
+            </Link>
+          </div>
+        </div>
       </nav>
     </>
   );
