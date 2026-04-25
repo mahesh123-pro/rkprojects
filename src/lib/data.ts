@@ -1,70 +1,74 @@
 export const productsData = {
-  thresher: {
-    id: "thresher",
-    name: "Multi Crop Thresher",
+  "ex210lc": {
+    id: "ex210lc",
+    name: "Tata Hitachi EX210LC Excavator",
+    banner: "/images/image_28.jpeg",
+    description: "The Tata Hitachi EX210LC is a powerhouse in the 20-tonne category, offering unparalleled digging force and operational efficiency. It is the backbone of our fleet, designed to handle the toughest rocky terrains and large-scale earthmoving projects with ease.",
+    useCases: [
+      "Heavy-duty rocky soil excavation",
+      "Large-scale site development",
+      "Highway roadbed preparation",
+      "Deep foundation trenching"
+    ],
+    gallery: [
+      "/images/image_28.jpeg",
+      "/images/image_30.jpeg",
+      "/images/image_31.jpeg",
+      "/images/image_34.jpeg"
+    ]
+  },
+  "ex200lc": {
+    id: "ex200lc",
+    name: "Hydraulic Excavator EX200LC",
+    banner: "/images/image_5.jpeg",
+    description: "Our EX200LC hydraulic excavators provide the perfect balance of power and precision. These machines are optimized for high-capacity material handling and efficient loading of site tippers, ensuring rapid progress in infrastructure works.",
+    useCases: [
+      "Material loading and transport prep",
+      "Utility trenching and pipeline work",
+      "General site grading",
+      "Demolition and debris clearing"
+    ],
+    gallery: [
+      "/images/image_5.jpeg",
+      "/images/image_6.jpeg",
+      "/images/image_2.jpeg",
+      "/images/image_4.jpeg"
+    ]
+  },
+  "tipper": {
+    id: "tipper",
+    name: "Heavy Duty Site Tipper",
+    banner: "/images/image_31.jpeg",
+    description: "Our heavy-duty tippers are essential for the rapid movement of excavated materials across construction sites. Paired with our high-speed excavators, they ensure a seamless flow of work from excavation to disposal or relocation.",
+    useCases: [
+      "Bulk earth and rock transport",
+      "Site clearing and material removal",
+      "Sand and aggregate delivery",
+      "Backfilling operations"
+    ],
+    gallery: [
+      "/images/image_31.jpeg",
+      "/images/image_8.jpeg",
+      "/images/image_3.jpeg",
+      "/images/image_30.jpeg"
+    ]
+  },
+  "site-inspection": {
+    id: "site-inspection",
+    name: "Project Site Management",
     banner: "/images/image_8.jpeg",
-    description: "Our Multi Crop Thresher is engineered for versatility, efficiently processing wheat, maize, pulses, and other grains. It features a robust threshing system that ensures maximum grain recovery with minimal damage, making it a favorite among large-scale farmers.",
+    description: "Beyond machinery, RK Projects provides expert site management and inspection services. We ensure every project is executed with technical precision, from initial surveying to final quality checks, using the best equipment and personnel.",
     useCases: [
-      "Wheat and Paddy processing",
-      "Maize and Pulse threshing",
-      "Multi-crop farm operations"
+      "Technical site surveying",
+      "Operational workflow management",
+      "Quality assurance and safety checks",
+      "Project progress monitoring"
     ],
     gallery: [
-      "/images/image_9.jpeg",
-      "/images/image_10.jpeg",
-      "/images/image_11.jpeg",
-      "/images/image_12.jpeg"
-    ]
-  },
-  shredder: {
-    id: "shredder",
-    name: "Tobacco Shredder",
-    banner: "/images/image_13.jpeg",
-    description: "Specially designed for the tobacco industry, our Tobacco Shredder provides uniform cutting and processing of tobacco leaves and stalks. It is built for high-capacity industrial use, ensuring durability and consistent output quality.",
-    useCases: [
-      "Tobacco stalk management",
-      "Industrial tobacco leaf processing",
-      "Biomass preparation for tobacco waste"
-    ],
-    gallery: [
-      "/images/image_14.jpeg",
-      "/images/image_15.jpeg",
-      "/images/image_16.jpeg",
-      "/images/image_17.jpeg"
-    ]
-  },
-  "cotton-shredder": {
-    id: "cotton-shredder",
-    name: "Cotton Shredder",
-    banner: "/images/image_18.jpeg",
-    description: "The RK Cotton Shredder is the industry standard for clearing cotton stalks after harvest. It efficiently breaks down tough stalks into small particles, allowing for easy soil incorporation and preparing the field for the next season.",
-    useCases: [
-      "Cotton stalk clearing",
-      "Soil preparation after cotton harvest",
-      "High-capacity farm stalk management"
-    ],
-    gallery: [
-      "/images/image_19.jpeg",
-      "/images/image_20.jpeg",
-      "/images/image_21.jpeg",
-      "/images/image_22.jpeg"
-    ]
-  },
-  "maize-thresher": {
-    id: "maize-thresher",
-    name: "Maize Thresher",
-    banner: "/images/image_23.jpeg",
-    description: "Our high-speed Maize Thresher is designed for maximum efficiency in de-husking and shelling maize. It handles high volumes with ease, providing clean maize kernels and saving significant manual labor.",
-    useCases: [
-      "Large scale maize shelling",
-      "Post-harvest maize processing",
-      "Commercial grain preparation"
-    ],
-    gallery: [
-      "/images/image_24.jpeg",
-      "/images/image_25.jpeg",
-      "/images/image_26.jpeg",
-      "/images/image_27.jpeg"
+      "/images/image_8.jpeg",
+      "/images/image_1.jpeg",
+      "/images/image_7.jpeg",
+      "/images/image_29.jpeg"
     ]
   }
 };

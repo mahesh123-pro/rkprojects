@@ -17,14 +17,14 @@ export default function Home() {
   const services = [
     { title: "Building Construction", img: "/images/image_1.jpeg", desc: "Commercial & residential projects with high quality." },
     { title: "Road Infrastructure", img: "/images/image_2.jpeg", desc: "Durable and reliable road construction." },
-    { title: "Heavy Machinery", img: "/images/image_3.jpeg", desc: "Providing industrial-scale machines for agriculture & civil needs." }
+    { title: "Heavy Machinery", img: "/images/image_3.jpeg", desc: "Providing industrial-scale machines for civil & infrastructure needs." }
   ];
 
   const products = [
-    { name: "Excavators", path: "/machinery" },
-    { name: "Bulldozers", path: "/machinery" },
-    { name: "Road Rollers", path: "/machinery" },
-    { name: "Concrete Mixers", path: "/machinery" },
+    { name: "Tata Hitachi Excavators", path: "/machinery" },
+    { name: "Heavy Duty Tippers", path: "/machinery" },
+    { name: "Hydraulic Earthmovers", path: "/machinery" },
+    { name: "Site Fleet Management", path: "/machinery" },
   ];
 
   const testimonials = [
@@ -153,7 +153,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-primary mb-4">Our Services</h2>
             <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We execute scalable infrastructure and building projects alongside offering top-tier agricultural and industrial machinery.
+              We execute scalable infrastructure and building projects alongside offering top-tier construction and infrastructure machinery.
             </p>
           </motion.div>
 
@@ -256,7 +256,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
                 className="h-48 relative rounded-xl shadow-md image-zoom-container"
               >
-                <Image src="/images/image_7.jpeg" alt="Agriculture and construction heavy equipment" fill loading="lazy" className="object-cover" />
+                <Image src="/images/image_7.jpeg" alt="Heavy construction and industrial equipment" fill loading="lazy" className="object-cover" />
               </motion.div>
             </div>
           </div>

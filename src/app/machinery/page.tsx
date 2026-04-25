@@ -21,15 +21,15 @@ export default function MachineryPage() {
   };
 
   const earthmovingEquipment = [
-    { name: "Excavators", img: "/images/image_3.jpeg", desc: "Precision digging and trenching for foundations and large-scale utilities." },
-    { name: "Bulldozers", img: "/images/image_5.jpeg", desc: "Heavy-duty land clearing and rough grading for highway preparation." },
-    { name: "Loaders", img: "/images/image_6.jpeg", desc: "Efficient material handling and transport across construction sites." },
+    { name: "Tata Hitachi Fleet", img: "/images/image_3.jpeg", desc: "Our comprehensive fleet of excavators and tippers working in sync for large-scale earthmoving." },
+    { name: "Hydraulic Excavator EX200LC", img: "/images/image_5.jpeg", desc: "High-performance excavator optimized for deep digging and foundation work." },
+    { name: "Material Handler", img: "/images/image_6.jpeg", desc: "Specialized excavators for rapid loading and handling of site materials." },
   ];
 
   const constructionMachinery = [
-    { name: "Road Rollers", img: "/images/image_2.jpeg", desc: "Advanced compaction technology for durable asphalt and soil surfaces." },
-    { name: "Concrete Mixers", img: "/images/image_7.jpeg", desc: "High-capacity mobile mixing for structural foundations and paving." },
-    { name: "Graders", img: "/images/image_29.jpeg", desc: "Precision leveling equipment for perfect road and site finishes." },
+    { name: "Heavy Duty Excavation", img: "/images/image_2.jpeg", desc: "Advanced hydraulic power for efficient soil and rock excavation." },
+    { name: "Site Development", img: "/images/image_7.jpeg", desc: "Coordinated machinery and personnel for complex infrastructure development." },
+    { name: "Precision Grading", img: "/images/image_29.jpeg", desc: "Expert earthworks and grading to prepare perfect site foundations." },
   ];
 
   const whyChooseUs = [

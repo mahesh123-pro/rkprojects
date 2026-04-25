@@ -27,7 +27,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold text-primary mb-6">Get In Touch</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                We're here to answer any questions you may have about our civil engineering services or our agricultural and industrial machinery.
+                We're here to answer any questions you may have about our civil engineering services or our heavy construction machinery.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
                   >
                     <option>Civil Construction</option>
                     <option>Road Infrastructure</option>
-                    <option>Heavy Machinery (Thresher, Shredder, etc.)</option>
+                    <option>Heavy Machinery (Excavators, Rollers, etc.)</option>
                     <option>Other Services</option>
                   </select>
                 </div>

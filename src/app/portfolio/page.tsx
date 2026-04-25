@@ -15,10 +15,10 @@ type ProjectItem = {
 };
 
 const projects: ProjectItem[] = [
-  { id: "proj-1", title: "City Highway Expansion", category: "road", img: "/images/image_28.jpeg" },
-  { id: "proj-2", title: "Commercial Plaza Build", category: "building", img: "/images/image_29.jpeg" },
-  { id: "proj-3", title: "Industrial Godown Facility", category: "building", img: "/images/image_30.jpeg" },
-  { id: "proj-4", title: "Rural Connectivity Bridge", category: "infrastructure", img: "/images/image_31.jpeg" },
+  { id: "proj-1", title: "Highway Infrastructure Grading", category: "road", img: "/images/image_28.jpeg" },
+  { id: "proj-2", title: "Industrial Site Development", category: "building", img: "/images/image_29.jpeg" },
+  { id: "proj-3", title: "Deep Foundation Excavation", category: "building", img: "/images/image_30.jpeg" },
+  { id: "proj-4", title: "Rock Removal & Site Clearing", category: "infrastructure", img: "/images/image_31.jpeg" },
 ];
 
 export default function PortfolioPage() {
