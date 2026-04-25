@@ -14,8 +14,9 @@ export default function Footer() {
                 RK<span className="text-accent">Projects</span>
               </span>
             </Link>
+            <span className="block text-accent text-xs font-bold uppercase tracking-widest mb-2">Civil Contract Works</span>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Delivering excellence in civil construction, infrastructure, and heavy machinery services with unyielding quality and precision.
+              Delivering excellence in civil construction, infrastructure, and heavy machinery services with unyielding quality and precision under the leadership of Dr. Rupani Lingaswamy.
             </p>
           </div>
 
@@ -48,15 +49,22 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-gray-400">
                 <MapPin size={20} className="text-accent flex-shrink-0 mt-1" />
-                <span className="text-sm">123 Industrial Area, Phase 1, Cityville, State 12345</span>
+                <span className="text-sm">
+                  H No: 17-1-473/72/A, Road No 2,<br />
+                  Krishna Nagar Colony, Saidabad,<br />
+                  Hyderabad – 500059
+                </span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400">
                 <Phone size={20} className="text-accent flex-shrink-0" />
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 95056 50901</span>
               </li>
-              <li className="flex items-center space-x-3 text-gray-400">
-                <Mail size={20} className="text-accent flex-shrink-0" />
-                <span className="text-sm">info@rkprojects.com</span>
+              <li className="flex flex-col space-y-2 text-gray-400 ml-[32px]">
+                <div className="flex items-center space-x-3 -ml-[32px]">
+                  <Mail size={20} className="text-accent flex-shrink-0" />
+                  <span className="text-sm">rkprojects.lrs@gmail.com</span>
+                </div>
+                <span className="text-sm">dr.lingaswamy.r@rkprojects.com</span>
               </li>
             </ul>
           </div>

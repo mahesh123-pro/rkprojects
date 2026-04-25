@@ -337,7 +337,7 @@ export default function Home() {
                 <Link href="/contact" className="btn-interactive bg-accent hover:bg-white text-gray-900 px-10 py-4 rounded font-bold text-lg shadow-md">
                   Get a Quote
                 </Link>
-                <a href="tel:+919876543210" className="btn-interactive flex items-center justify-center bg-transparent border border-white/40 hover:bg-white/10 text-white px-10 py-4 rounded font-bold text-lg">
+                <a href="tel:+919505650901" className="btn-interactive flex items-center justify-center bg-transparent border border-white/40 hover:bg-white/10 text-white px-10 py-4 rounded font-bold text-lg">
                   <Phone className="mr-3 text-accent" size={20} /> Contact Us
                 </a>
              </div>

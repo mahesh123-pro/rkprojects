@@ -49,8 +49,8 @@ export default function PrivacyPolicy() {
               If you have any questions about this privacy policy or our privacy practices, please contact us at:
             </p>
             <ul className="mt-4 font-semibold text-primary">
-              <li>Email: info@rkprojects.com</li>
-              <li>Phone: +91 98765 43210</li>
+              <li>Email: rkprojects.lrs@gmail.com</li>
+              <li>Phone: +91 95056 50901</li>
             </ul>
           </section>
         </div>

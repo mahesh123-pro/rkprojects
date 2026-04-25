@@ -38,8 +38,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-primary">Phone</h4>
-                  <p className="text-gray-600 mt-1">+91 98765 43210</p>
-                  <p className="text-gray-600">+91 12345 67890</p>
+                  <p className="text-gray-600 mt-1">+91 95056 50901</p>
+                  <p className="text-gray-500 text-sm mt-1">Dr. Rupani Lingaswamy</p>
                 </div>
               </div>
               
@@ -49,8 +49,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-primary">Email</h4>
-                  <p className="text-gray-600 mt-1">info@rkprojects.com</p>
-                  <p className="text-gray-600">sales@rkprojects.com</p>
+                  <p className="text-gray-600 mt-1">rkprojects.lrs@gmail.com</p>
+                  <p className="text-gray-600">dr.lingaswamy.r@rkprojects.com</p>
                 </div>
               </div>
 
@@ -61,9 +61,9 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-xl font-bold text-primary">Office Location</h4>
                   <p className="text-gray-600 mt-1 leading-relaxed">
-                    123 Industrial Area, Phase 1<br />
-                    Cityville, State 12345<br />
-                    India
+                    H No: 17-1-473/72/A, Road No 2,<br />
+                    Krishna Nagar Colony, Saidabad,<br />
+                    Hyderabad – 500059
                   </p>
                 </div>
               </div>

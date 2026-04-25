@@ -33,13 +33,13 @@ export default function Navbar() {
       <div className="hidden lg:block w-full bg-[#111827] text-gray-300 py-2 border-b border-gray-800 relative z-[101]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs font-medium">
           <div className="flex space-x-6">
-            <a href="tel:+919876543210" className="flex items-center hover:text-white transition-colors">
+            <a href="tel:+919505650901" className="flex items-center hover:text-white transition-colors">
               <Phone size={14} className="mr-2 text-accent" />
-              +91 98765 43210
+              +91 95056 50901
             </a>
-            <a href="mailto:info@rkprojects.com" className="flex items-center hover:text-white transition-colors">
+            <a href="mailto:rkprojects.lrs@gmail.com" className="flex items-center hover:text-white transition-colors">
               <Mail size={14} className="mr-2 text-accent" />
-              info@rkprojects.com
+              rkprojects.lrs@gmail.com
             </a>
           </div>
           <div className="flex space-x-6 items-center">
@@ -72,7 +72,7 @@ export default function Navbar() {
                   RK<span className="text-accent">PROJECTS</span>
                 </span>
                 <span className={`text-[10px] font-semibold tracking-wider uppercase transition-colors ${scrolled || !isHome || isOpen ? "text-gray-500" : "text-gray-300"}`}>
-                  Civil & Infrastructure
+                  Civil Contract Works
                 </span>
               </div>
             </Link>
