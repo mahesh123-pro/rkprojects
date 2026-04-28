@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="w-full relative">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] w-full flex items-center bg-gray-900 overflow-hidden">
+      <section className="relative h-screen min-h-[700px] w-full flex items-center bg-[#0F172A] overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
             src="/images/image_4.jpeg"
@@ -56,7 +56,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
               Building The<br/> Foundations Of <span className="text-accent underline decoration-accent/50 underline-offset-8">Tomorrow.</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">
+            <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl font-light">
               Premium civil construction, road infrastructure, and specialized heavy machinery designed to meet industrial demands. Serious solutions for big projects.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -305,7 +305,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl bg-[#111827]/90 p-10 rounded border border-gray-800"
+            className="max-w-2xl bg-[#0F172A]/90 p-10 rounded border border-[#1E3A8A]"
           >
             <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Precision & Power</p>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">

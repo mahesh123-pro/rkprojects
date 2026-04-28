@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="hidden lg:block w-full bg-[#111827] text-gray-300 py-2 border-b border-gray-800 relative z-[101]">
+      <div className="hidden lg:block w-full bg-[#0F172A] text-blue-100 py-2 border-b border-[#1E3A8A] relative z-[101]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs font-medium">
           <div className="flex space-x-6">
             <a href="tel:+919505650901" className="flex items-center hover:text-white transition-colors">
@@ -44,10 +44,10 @@ export default function Navbar() {
           </div>
           <div className="flex space-x-6 items-center">
             <span className="flex items-center">
-              <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+              <span className="w-2 h-2 rounded-full bg-accent mr-2"></span>
               ISO 9001:2015 Certified
             </span>
-            <span className="text-gray-600">|</span>
+            <span className="text-blue-300">|</span>
             <Link href="/contact" className="hover:text-white transition-colors">Request a Quote</Link>
           </div>
         </div>
