@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, HardHat, Phone, Mail, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Contact Bar */}
-      <div className="hidden lg:block w-full bg-[#0F172A] text-blue-100 py-2 border-b border-[#1E3A8A] relative z-[101]">
+      <div className="hidden lg:block w-full bg-primary text-slate-100 py-2 border-b border-slate-800 relative z-[101]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs font-medium">
           <div className="flex space-x-6">
             <a href="tel:+919505650901" className="flex items-center hover:text-white transition-colors">
@@ -47,17 +48,17 @@ export default function Navbar() {
               <span className="w-2 h-2 rounded-full bg-accent mr-2"></span>
               ISO 9001:2015 Certified
             </span>
-            <span className="text-blue-300">|</span>
-            <Link href="/contact" className="hover:text-white transition-colors">Request a Quote</Link>
+            <span className="text-slate-500">|</span>
+            <Link href="/contact" className="hover:text-accent transition-colors">Request a Quote</Link>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
       <nav 
-        className={`fixed w-full z-[100] transition-all duration-300 ${
+        className={`fixed w-full z-[100] transition-all duration-500 ${
           scrolled || !isHome || isOpen
-            ? "bg-white shadow-md py-2 lg:top-8" 
+            ? "bg-white/95 backdrop-blur-md shadow-lg py-2 lg:top-8" 
             : "bg-transparent py-4 text-white lg:top-8"
         }`}
       >
@@ -65,15 +66,15 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group relative z-[110]">
-              <HardHat className={`h-8 w-8 transition-colors ${scrolled || !isHome || isOpen ? "text-primary" : "text-white"}`} />
-              <div className="flex flex-col -space-y-0.5">
-                <span className={`font-black text-2xl tracking-tight transition-colors ${scrolled || !isHome || isOpen ? "text-gray-900" : "text-white"}`}>
-                  RK<span className="text-accent">PROJECTS</span>
-                </span>
-                <span className={`text-[10px] font-semibold tracking-wider uppercase transition-colors ${scrolled || !isHome || isOpen ? "text-gray-500" : "text-gray-300"}`}>
-                  Civil Contract Works
-                </span>
+            <Link href="/" className="flex items-center group relative z-[110]">
+              <div className="relative h-12 w-32 md:h-14 md:w-36 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+                <Image 
+                  src="/images/rkprojectslogo.png" 
+                  alt="RK Projects Logo" 
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </Link>
 
@@ -127,10 +128,10 @@ export default function Navbar() {
               {/* CTA Button */}
               <Link
                 href="/contact"
-                className={`ml-4 px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wide transition-all ${
+                className={`ml-4 px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wide transition-all duration-300 ${
                   scrolled || !isHome || isOpen
-                    ? "bg-primary text-white hover:bg-primary-hover shadow-md"
-                    : "bg-accent text-gray-900 hover:bg-white"
+                    ? "bg-accent text-white hover:bg-accent-hover shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    : "bg-white text-primary hover:bg-accent hover:text-white"
                 }`}
               >
                 Get Quote

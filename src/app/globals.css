@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1E3A8A;
-  --color-accent: #3B82F6;
-  --color-accent-hover: #2563EB;
-  --color-dark-gray: #1E40AF;
-  --color-surface: #EFF6FF;
+  --color-primary: #0F172A;
+  --color-accent: #EA580C;
+  --color-accent-hover: #C2410C;
+  --color-dark-gray: #334155;
+  --color-surface: #F8FAFC;
   --font-sans: var(--font-inter);
 }
 
@@ -59,4 +59,15 @@ button, .btn-interactive {
 
 button:hover, .btn-interactive:hover {
   transform: translateY(-2px);
+}
+
+/* Preloader Animations */
+@keyframes progress {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(0.7); }
+  100% { transform: scaleX(1); }
+}
+
+.animate-progress {
+  animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
