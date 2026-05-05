@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0F172A;
-  --color-accent: #EA580C;
-  --color-accent-hover: #C2410C;
-  --color-dark-gray: #334155;
-  --color-surface: #F8FAFC;
+  /* Blue & White slight Black Theme */
+  --color-primary: #1E3A8A; /* Royal Blue */
+  --color-primary-dark: #172554; /* Deep Navy */
+  --color-accent: #3B82F6; /* Vibrant Blue */
+  --color-accent-hover: #2563EB; /* Deep Blue */
+  --color-dark-black: #0F172A; /* Slate Black */
+  --color-surface: #F8FAFC; /* Soft Slate */
+  --color-glass: rgba(255, 255, 255, 0.7);
+  
   --font-sans: var(--font-inter);
 }
 
@@ -21,18 +25,19 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Blue Theme */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #F1F5F9; 
 }
  
 ::-webkit-scrollbar-thumb {
   background: #1E3A8A; 
-  border-radius: 4px;
+  border-radius: 5px;
+  border: 2px solid #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -42,23 +47,109 @@ body {
 /* Premium Interactions */
 .image-zoom-container {
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .image-zoom-container img {
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .image-zoom-container:hover img {
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 
-/* Button Micro-interactions */
-button, .btn-interactive {
-  transition: all 0.3s ease;
+/* Advanced Button Interaction */
+.btn-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
 }
 
-button:hover, .btn-interactive:hover {
-  transform: translateY(-2px);
+.btn-interactive::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: var(--color-accent);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-interactive:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(30, 58, 138, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.btn-interactive:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Glassmorphism Classes - Advanced Hover */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--color-primary);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 40px 80px -20px rgba(30, 58, 138, 0.15);
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.glass-card-dark:hover {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: var(--color-accent);
+  transform: translateY(-12px);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Animated Underline - Advanced */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* Custom Text Hover */
+.text-hover-gradient {
+  transition: all 0.5s ease;
+}
+
+.text-hover-gradient:hover {
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Preloader Animations */

@@ -34,317 +34,400 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] w-full flex items-center bg-[#0F172A] overflow-hidden">
-        <motion.div style={{ y }} className="absolute inset-0 z-0">
+      <section className="relative h-screen min-h-[800px] w-full flex items-center bg-dark-black overflow-hidden">
+        <motion.div 
+          style={{ y }} 
+          className="absolute inset-0 z-0"
+        >
           <Image
             src="/images/image_4.jpeg"
             alt="Civil construction and highway road work by RK Projects"
             fill
-            className="object-cover opacity-60 mix-blend-overlay"
+            className="object-cover opacity-40 mix-blend-luminosity scale-110"
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
         
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-20">
+        {/* Modern Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-black via-dark-black/80 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-black z-10" />
+        
+        {/* Animated Background Elements */}
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse z-0"></div>
+        <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-[120px] animate-pulse z-0"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-20 z-20">
           <motion.div 
             initial="hidden" animate="visible" variants={fadeUp}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-              Building The<br/> Foundations Of <span className="text-accent underline decoration-accent/50 underline-offset-8">Tomorrow.</span>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center space-x-3 mb-6"
+            >
+              <div className="h-px w-12 bg-accent"></div>
+              <span className="text-accent font-black uppercase tracking-[0.3em] text-sm">Premier Civil Engineering</span>
+            </motion.div>
+            
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white mb-8 leading-[0.95] tracking-tighter">
+              Engineering <br/> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-accent">The Future.</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl font-light">
-              Premium civil construction, road infrastructure, and specialized heavy machinery designed to meet industrial demands. Serious solutions for big projects.
+            
+            <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl font-medium leading-relaxed">
+              Premium civil construction and infrastructure solutions designed for the modern industrial landscape. Built on a foundation of precision and power.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-interactive bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded font-bold text-lg shadow-md flex items-center justify-center">
-                Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
+            
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link href="/contact" className="btn-interactive bg-primary hover:bg-accent text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl shadow-primary/40 flex items-center justify-center group">
+                Start Your Project <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </Link>
-              <Link href="/contact" className="btn-interactive bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded font-bold text-lg flex items-center justify-center">
-                <Phone className="mr-2 w-5 h-5" /> Contact Us
+              <Link href="/portfolio" className="btn-interactive glass-card-dark text-white px-10 py-5 rounded-2xl font-black text-lg flex items-center justify-center border-white/10 hover:bg-white/10">
+                View Portfolio
               </Link>
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center"
+        >
+          <span className="text-white/30 text-[10px] font-black uppercase tracking-[0.5em] mb-4">Scroll to explore</span>
+          <div className="w-[1px] h-16 bg-gradient-to-b from-accent to-transparent"></div>
+        </motion.div>
       </section>
 
-      {/* Trust Elements - Stats Bar */}
-      <section className="bg-primary border-t border-white/10 py-10 relative z-10 -mt-1">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
-            <div>
-              <p className="text-4xl font-bold text-white">150+</p>
-              <p className="text-accent text-sm uppercase tracking-wider mt-1">Completed Projects</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-white">10+</p>
-              <p className="text-accent text-sm uppercase tracking-wider mt-1">Years Experience</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-white">50+</p>
-              <p className="text-accent text-sm uppercase tracking-wider mt-1">Enterprise Clients</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-white">100%</p>
-              <p className="text-accent text-sm uppercase tracking-wider mt-1">Quality Assurance</p>
-            </div>
+      {/* Trust Stats Bar - Ultra Modern */}
+      <section className="relative z-30 -mt-12 max-w-6xl mx-auto px-4">
+        <div className="glass-card rounded-3xl shadow-2xl p-8 md:p-12 border-white/50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            {[
+              { label: "Completed Projects", value: "150+" },
+              { label: "Years Experience", value: "10+" },
+              { label: "Enterprise Clients", value: "50+" },
+              { label: "Success Rate", value: "100%" }
+            ].map((stat, i) => (
+              <div key={i} className="relative group">
+                <p className="text-4xl md:text-5xl font-black text-primary mb-2 group-hover:scale-110 transition-transform duration-500">{stat.value}</p>
+                <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* AI Realistic Vision Section */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+      {/* Vision Section */}
+      <section className="py-32 md:py-48 bg-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 z-0"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-24">
             <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="lg:w-1/2"
             >
-              <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4 italic">Next-Gen Construction</p>
-              <h2 className="text-4xl md:text-6xl font-black text-primary mb-8 leading-tight">
+              <span className="text-accent font-black uppercase tracking-[0.2em] text-sm mb-6 block">Our Vision</span>
+              <h2 className="text-5xl md:text-7xl font-black text-dark-black mb-10 leading-none tracking-tighter">
                 Architectural <br />
-                <span className="text-accent italic">Vision.</span>
+                <span className="text-primary italic">Excellence.</span>
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
-                RK Projects blends traditional craftsmanship with the latest technological advancements. Our vision spans beyond just buildings; we create landmarks that stand the test of time through extreme realism and precision.
+              <p className="text-xl text-slate-600 mb-10 leading-relaxed font-medium">
+                RK Projects blends traditional craftsmanship with cutting-edge engineering. We don't just build structures; we create landmarks that define the skyline and stand the test of time.
               </p>
-              <div className="h-1 w-20 bg-accent mb-8"></div>
-              <p className="text-gray-500 italic mb-10">
-                "Our approach combines the strength of tradition with the precision of modern engineering."
-              </p>
-              <Link href="/contact" className="inline-flex items-center text-primary font-bold hover:text-accent transition-colors text-lg border-b-2 border-primary hover:border-accent pb-1">
-                Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="text-primary w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-dark-black text-lg">Smart Design</h4>
+                    <p className="text-slate-500 text-sm font-medium">Precision engineering for every square inch.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                    <Users className="text-accent w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-dark-black text-lg">Expert Team</h4>
+                    <p className="text-slate-500 text-sm font-medium">Led by industry veterans and innovators.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="/contact" className="inline-flex items-center group">
+                <span className="text-lg font-black text-dark-black border-b-4 border-accent pb-1 group-hover:border-primary transition-colors">Start a Conversation</span>
+                <ChevronRight className="ml-2 w-6 h-6 text-accent group-hover:translate-x-2 transition-transform" />
               </Link>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:w-1/2 relative h-[350px] sm:h-[450px] md:h-[500px] w-full rounded-2xl shadow-2xl border-4 md:border-8 border-white group image-zoom-container"
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative h-[500px] md:h-[650px] w-full"
             >
-              <Image 
-                src="/images/ai_impact.png" 
-                alt="Architectural vision of modern construction by RK Projects" 
-                fill 
-                loading="lazy"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+              <div className="absolute inset-0 bg-primary/5 rounded-[40px] rotate-3 z-0"></div>
+              <div className="relative h-full w-full rounded-[40px] overflow-hidden shadow-2xl border-8 border-white z-10 group image-zoom-container">
+                <Image 
+                  src="/images/ai_impact.png" 
+                  alt="Architectural vision" 
+                  fill 
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-black/40 to-transparent" />
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section id="services" className="py-24 bg-surface w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Services</h2>
-            <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We execute scalable infrastructure and building projects alongside offering top-tier construction and infrastructure machinery.
+      {/* Services Grid - Blue & White Theme */}
+      <section id="services" className="py-32 bg-slate-50 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div className="max-w-2xl">
+              <span className="text-accent font-black uppercase tracking-[0.2em] text-sm mb-4 block">Core Services</span>
+              <h2 className="text-5xl md:text-6xl font-black text-dark-black tracking-tighter leading-none">
+                Comprehensive <br/> Infrastructure.
+              </h2>
+            </div>
+            <p className="text-slate-500 text-lg font-medium max-w-sm">
+              We provide end-to-end solutions for large-scale civil projects and heavy machinery requirements.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {services.map((service, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="group bg-white rounded-xl shadow-md border border-gray-100 flex flex-col"
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                whileHover={{ 
+                  y: -15,
+                  rotateX: 2,
+                  rotateY: -2,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+                style={{ perspective: 1000 }}
+                className="group relative bg-white rounded-[40px] p-5 shadow-2xl shadow-slate-200/50 border border-slate-100 transition-all duration-500"
               >
-                <div className="relative h-64 bg-gray-200 image-zoom-container">
+                <div className="relative h-80 rounded-[32px] overflow-hidden mb-10">
                   <Image 
                     src={service.img} 
-                    alt={`${service.title} services provided by RK Projects`} 
+                    alt={service.title} 
                     fill 
-                    loading="lazy"
-                    className="object-cover" 
+                    className="object-cover group-hover:scale-110 transition-transform duration-1000" 
                   />
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                </div>
-                <div className="p-8 relative flex-grow flex flex-col">
-                  <div className="absolute -top-6 right-6 bg-accent w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:-translate-y-2 transition-transform duration-300">
-                    <CheckCircle2 className="text-white w-6 h-6" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-black/80 via-dark-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                  <div className="absolute bottom-8 left-8">
+                    <h3 className="text-3xl font-black text-white group-hover:text-accent transition-colors duration-500">{service.title}</h3>
                   </div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">{service.title}</h3>
-                  <p className="text-gray-600 font-medium leading-relaxed flex-grow mb-6">{service.desc}</p>
-                  <Link href="/contact" className="text-accent font-bold hover:text-primary transition-colors flex items-center mt-auto">
-                    Contact Us <ChevronRight className="ml-1 w-4 h-4" />
+                </div>
+                <div className="px-5 pb-10">
+                  <p className="text-slate-500 font-medium mb-10 leading-relaxed text-lg">
+                    {service.desc}
+                  </p>
+                  <Link href="/contact" className="inline-flex items-center text-primary font-black group/link text-lg uppercase tracking-widest">
+                    Consultation <ArrowRight className="ml-3 w-6 h-6 group-hover/link:translate-x-3 transition-transform duration-500" />
                   </Link>
                 </div>
+                {/* Advanced Shine Effect */}
+                <div className="absolute inset-0 rounded-[40px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000 bg-gradient-to-br from-white/20 via-transparent to-transparent z-20" />
               </motion.div>
             ))}
-          </div>
-          
-          <div className="text-center mt-10">
-            <Link href="/contact" className="btn-interactive inline-block bg-primary text-white px-8 py-4 rounded font-bold hover:bg-primary-hover shadow-md">
-              Get a Quote for Your Project
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Machinery Lineup Preview */}
-      <section className="py-24 bg-white relative border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-16 items-center">
-            <motion.div 
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
-              className="md:w-1/2"
-            >
-              <h2 className="text-4xl font-bold text-primary mb-6">Machinery & Equipment</h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                As part of RK Projects' comprehensive infrastructure services, we deliver top-of-the-line heavy duty implements. From precision shredders to high-capacity threshers, our machinery is built to endure.
+      {/* Machinery Lineup - High Contrast */}
+      <section className="py-32 bg-dark-black text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <div>
+              <span className="text-accent font-black uppercase tracking-[0.2em] text-sm mb-6 block">Industrial Fleet</span>
+              <h2 className="text-5xl md:text-7xl font-black mb-10 tracking-tighter leading-none">
+                Machinery <br /> 
+                <span className="text-accent">& Power.</span>
+              </h2>
+              <p className="text-xl text-slate-400 mb-12 font-medium leading-relaxed">
+                As part of RK Projects' comprehensive infrastructure services, we deliver top-of-the-line heavy duty implements built to endure extreme conditions.
               </p>
               
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              <div className="space-y-4 mb-12">
                 {products.map((p, idx) => (
-                  <motion.li 
-                    key={idx}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  <Link 
+                    key={idx} 
+                    href={p.path} 
+                    className="flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent transition-all group"
                   >
-                    <Link href={p.path} className="flex items-center p-4 rounded-lg bg-gray-50 border border-gray-100 hover:border-accent hover:bg-orange-50 group transition-colors">
-                      <ChevronRight className="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform" />
-                      <span className="font-semibold text-primary ml-2">{p.name}</span>
-                    </Link>
-                  </motion.li>
+                    <span className="text-lg font-black">{p.name}</span>
+                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent transition-colors">
+                      <ChevronRight className="w-5 h-5 text-accent group-hover:text-white" />
+                    </div>
+                  </Link>
                 ))}
-              </ul>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Link href="/portfolio" className="btn-interactive inline-flex justify-center border-2 border-primary text-primary px-8 py-3 rounded font-bold hover:bg-primary hover:text-white">
-                  View Full Catalog
-                </Link>
-                <Link href="/contact" className="btn-interactive inline-flex justify-center bg-accent text-white px-8 py-3 rounded font-bold hover:bg-accent-hover">
-                  Contact Us
-                </Link>
               </div>
+
+              <Link href="/machinery" className="btn-interactive bg-white text-dark-black px-12 py-5 rounded-2xl font-black text-lg inline-block shadow-2xl shadow-white/5">
+                View Full Fleet
+              </Link>
+            </div>
+            
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="col-span-2 h-[400px] relative rounded-[40px] overflow-hidden border-4 border-white/10">
+                  <Image src="/images/image_5.jpeg" alt="Machinery" fill className="object-cover" />
+                </div>
+                <div className="h-64 relative rounded-[32px] overflow-hidden border-4 border-white/10">
+                  <Image src="/images/image_6.jpeg" alt="Machinery" fill className="object-cover" />
+                </div>
+                <div className="h-64 relative rounded-[32px] overflow-hidden border-4 border-white/10">
+                  <Image src="/images/image_7.jpeg" alt="Machinery" fill className="object-cover" />
+                </div>
+              </div>
+              {/* Floating Badge */}
+              <div className="absolute -bottom-10 -left-10 glass-card-dark p-8 rounded-[32px] shadow-2xl border-white/10 hidden md:block">
+                <p className="text-4xl font-black text-white mb-1">24/7</p>
+                <p className="text-accent text-xs font-black uppercase tracking-widest">Support & Ops</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JCB Elite Fleet Teaser */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-20">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2"
+            >
+              <span className="text-accent font-black uppercase tracking-[0.3em] text-sm mb-6 block">Specialized Equipment</span>
+              <h2 className="text-5xl md:text-7xl font-black text-dark-black mb-10 tracking-tighter leading-tight">
+                The Elite <br/> <span className="text-primary">Heavy Fleet.</span>
+              </h2>
+              <p className="text-xl text-slate-600 mb-10 font-medium leading-relaxed">
+                Discover our specialized collection of 20+ machinery units, meticulously maintained to deliver peak performance on every project site. From backhoes to excavators, we have the right machine for the job.
+              </p>
+              <Link href="/jcb-fleet" className="btn-interactive inline-flex items-center bg-primary text-white px-12 py-5 rounded-2xl font-black text-lg group">
+                Explore Gallery <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              </Link>
             </motion.div>
             
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+            <div className="lg:w-1/2 grid grid-cols-2 gap-6">
               <motion.div 
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-                className="col-span-2 h-64 relative rounded-xl shadow-md image-zoom-container"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="h-80 relative rounded-[40px] overflow-hidden shadow-2xl border-4 border-white"
               >
-                <Image src="/images/image_5.jpeg" alt="Heavy duty machinery provided by RK Projects" fill loading="lazy" className="object-cover" />
+                <Image src="/images/jcb images/pexels-acecranesindia-29411120.jpg" alt="Heavy Machinery" fill className="object-cover" />
               </motion.div>
               <motion.div 
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
-                className="h-48 relative rounded-xl shadow-md image-zoom-container"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="h-80 relative rounded-[40px] overflow-hidden shadow-2xl border-4 border-white mt-12"
               >
-                <Image src="/images/image_6.jpeg" alt="Industrial machinery implement" fill loading="lazy" className="object-cover" />
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
-                className="h-48 relative rounded-xl shadow-md image-zoom-container"
-              >
-                <Image src="/images/image_7.jpeg" alt="Heavy construction and industrial equipment" fill loading="lazy" className="object-cover" />
+                <Image src="/images/jcb images/pexels-acecranesindia-29411121.jpg" alt="Heavy Machinery" fill className="object-cover" />
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Elements - Testimonials */}
-      <section className="py-24 bg-surface w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
-            <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6"></div>
+      {/* Testimonials - Elegant White */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-accent font-black uppercase tracking-[0.2em] text-sm mb-4 block">Testimonials</span>
+            <h2 className="text-5xl md:text-6xl font-black text-dark-black tracking-tighter">Client Stories.</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {testimonials.map((t, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
-                <div className="flex text-yellow-400 mb-4">
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="bg-slate-50 p-10 rounded-[40px] relative hover:bg-primary transition-all duration-500 group"
+              >
+                <div className="flex text-accent mb-8 group-hover:text-blue-300 transition-colors">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                 </div>
-                <p className="text-gray-600 mb-6 italic leading-relaxed">"{t.text}"</p>
-                <div>
-                  <h4 className="font-bold text-primary text-lg">{t.name}</h4>
-                  <p className="text-sm text-gray-500">{t.role}</p>
+                <p className="text-xl text-slate-600 mb-10 font-medium italic leading-relaxed group-hover:text-white/90 transition-colors">
+                  "{t.text}"
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 group-hover:bg-white/10 flex items-center justify-center font-black text-primary group-hover:text-white transition-all">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-black text-dark-black text-lg group-hover:text-white transition-colors">{t.name}</h4>
+                    <p className="text-sm text-slate-500 font-bold group-hover:text-blue-200 transition-colors">{t.role}</p>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Construction Highlight */}
-      <section className="relative w-full py-32 overflow-hidden bg-primary">
-        <Image 
-          src="/images/image_29.jpeg" 
-          alt="Featured highway infrastructure project by RK Projects" 
-          fill 
-          loading="lazy"
-          className="object-cover opacity-30 scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-transparent"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl bg-[#0F172A]/90 p-10 rounded border border-[#1E3A8A]"
-          >
-            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Precision & Power</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-              Civil Engineering <br />
-              <span className="text-accent">Redefined.</span>
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Our commitment to quality is visible in every road we pave and every structure we build. Using the most advanced machinery and engineering techniques, we ensure that every project is a landmark of durability.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-8">
-              <Link href="/contact" className="btn-interactive bg-accent hover:bg-accent-hover text-gray-900 px-8 py-3 rounded font-bold shadow-md self-start">
-                Get a Quote
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-primary border-t border-white/10 w-full relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full filter blur-[100px] opacity-20 -translate-y-1/2 translate-x-1/3"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
-             <p className="text-xl text-gray-300 mb-10 font-light">
-               Let's build something exceptional together. Contact us today for inquiries regarding civil works or machinery.
-             </p>
-             <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link href="/contact" className="btn-interactive bg-accent hover:bg-white text-gray-900 px-10 py-4 rounded font-bold text-lg shadow-md">
-                  Get a Quote
+      {/* Final CTA - Ultra Premium */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative bg-primary rounded-[60px] overflow-hidden p-12 md:p-24 text-center">
+            <Image 
+              src="/images/image_29.jpeg" 
+              alt="Background" 
+              fill 
+              className="object-cover opacity-20 scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary to-primary z-10" />
+            
+            <div className="relative z-20 max-w-4xl mx-auto">
+              <h2 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+                Ready to build <br /> the <span className="text-accent">extraordinary?</span>
+              </h2>
+              <p className="text-xl md:text-2xl text-blue-100/80 mb-12 font-medium max-w-2xl mx-auto">
+                Join forces with RK Projects and let's turn your infrastructure vision into a reality.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Link href="/contact" className="btn-interactive bg-white text-primary px-12 py-6 rounded-2xl font-black text-xl shadow-2xl shadow-black/20">
+                  Get a Free Quote
                 </Link>
-                <a href="tel:+919505650901" className="btn-interactive flex items-center justify-center bg-transparent border border-white/40 hover:bg-white/10 text-white px-10 py-4 rounded font-bold text-lg">
-                  <Phone className="mr-3 text-accent" size={20} /> Contact Us
+                <a href="tel:+919505650901" className="btn-interactive flex items-center justify-center bg-transparent border-2 border-white/20 hover:bg-white/10 text-white px-12 py-6 rounded-2xl font-black text-xl backdrop-blur-md">
+                  <Phone className="mr-3 text-accent" size={24} /> Contact Now
                 </a>
-             </div>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
     </div>
   );
 }

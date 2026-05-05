@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { productsData } from "@/lib/data";
 
 type ProjectItem = {
@@ -48,35 +49,36 @@ export default function PortfolioPage() {
     : allItems.filter(item => item.category === filter);
 
   return (
-    <div className="w-full bg-surface min-h-screen pt-28 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-white min-h-screen pt-32 pb-32">
+      <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center mb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-extrabold text-primary mb-6"
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Our Portfolio & Implements
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto mb-10"
-          >
-            Explore our massive civil construction projects and cutting-edge heavy machinery built for endurance and scale.
-          </motion.p>
+            <span className="text-accent font-black uppercase tracking-[0.3em] text-sm mb-6 block">Our Impact</span>
+            <h1 className="text-6xl md:text-8xl font-black text-dark-black mb-10 tracking-tighter leading-none">
+              Portfolio & <br/> <span className="text-primary">Innovation.</span>
+            </h1>
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed mb-12">
+              Explore RK Projects' massive civil construction portfolio and cutting-edge heavy machinery built for endurance and scale.
+            </p>
+          </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-4 bg-slate-50 p-3 rounded-3xl inline-flex border border-slate-100"
           >
             {filterOptions.map((opt) => (
               <button
                 key={opt.value}
                 onClick={() => setFilter(opt.value)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-8 py-3 rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-500 ${
                   filter === opt.value 
-                    ? "bg-primary text-white shadow-md shadow-primary/30" 
-                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                    ? "bg-primary text-white shadow-2xl shadow-primary/30 scale-105" 
+                    : "text-slate-500 hover:text-primary hover:bg-white"
                 }`}
               >
                 {opt.label}
@@ -85,8 +87,8 @@ export default function PortfolioPage() {
           </motion.div>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <AnimatePresence mode='popLayout'>
             {filteredItems.map((item, idx) => (
               <motion.div
                 layout
@@ -94,29 +96,39 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100"
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="group relative bg-white rounded-[40px] overflow-hidden shadow-2xl border border-slate-50 hover:-translate-y-4 transition-all duration-500"
               >
-                <div className="relative h-72 w-full overflow-hidden bg-gray-200">
+                <div className="relative h-[450px] w-full overflow-hidden bg-slate-100">
                   <Image 
                     src={item.img} 
                     alt={item.title} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    className="object-cover group-hover:scale-110 transition-transform duration-1000" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                </div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-accent text-xs font-bold uppercase tracking-wider mb-2 block">{item.category}</span>
-                  <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                  {item.link ? (
-                    <Link href={item.link} className="inline-block mt-2 text-white border-b-2 border-accent pb-1 font-medium hover:text-accent transition-colors">
-                      View Details →
-                    </Link>
-                  ) : (
-                    <span className="inline-block mt-2 text-gray-300 text-sm">Completed Project</span>
-                  )}
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-black via-dark-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                  
+                  {/* Content Container */}
+                  <div className="absolute bottom-0 left-0 right-0 p-10 z-10">
+                    <span className="bg-accent/20 backdrop-blur-md text-accent text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full mb-4 inline-block border border-accent/30">
+                      {item.category}
+                    </span>
+                    <h3 className="text-3xl font-black text-white mb-6 leading-tight group-hover:text-accent transition-colors">
+                      {item.title}
+                    </h3>
+                    
+                    {item.link ? (
+                      <Link href={item.link} className="btn-interactive inline-flex items-center text-sm font-black text-white uppercase tracking-widest group/link">
+                        View Solution <ArrowRight className="ml-2 w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
+                      </Link>
+                    ) : (
+                      <div className="flex items-center text-slate-400 text-xs font-black uppercase tracking-widest">
+                        <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                        Completed Project
+                      </div>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -124,8 +136,9 @@ export default function PortfolioPage() {
         </motion.div>
 
         {filteredItems.length === 0 && (
-          <div className="text-center py-20">
-            <h3 className="text-2xl font-medium text-gray-500">No items found for this category.</h3>
+          <div className="text-center py-32 glass-card rounded-[40px] border-slate-100">
+            <h3 className="text-3xl font-black text-slate-400 uppercase tracking-tighter">No assets found in this category.</h3>
+            <button onClick={() => setFilter('all')} className="mt-8 text-primary font-black uppercase tracking-widest border-b-2 border-primary">Clear Filters</button>
           </div>
         )}
       </div>
