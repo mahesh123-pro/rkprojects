@@ -222,7 +222,7 @@ export default function Home() {
                   y: -15,
                   rotateX: 2,
                   rotateY: -2,
-                  transition: { duration: 0.4, ease: "easeOut" }
+                  transition: { duration: 0.4, ease: "easeOut" as const }
                 }}
                 style={{ perspective: 1000 }}
                 className="group relative bg-white rounded-[40px] p-5 shadow-2xl shadow-slate-200/50 border border-slate-100 transition-all duration-500"

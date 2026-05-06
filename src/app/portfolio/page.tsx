@@ -96,7 +96,7 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5, ease: "circOut" }}
+                transition={{ duration: 0.5, ease: "circOut" as const }}
                 className="group relative bg-white rounded-[40px] overflow-hidden shadow-2xl border border-slate-50 hover:-translate-y-4 transition-all duration-500"
               >
                 <div className="relative h-[450px] w-full overflow-hidden bg-slate-100">
